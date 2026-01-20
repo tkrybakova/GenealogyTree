@@ -1,0 +1,26 @@
+CREATE TABLE person (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name TEXT,
+    last_name TEXT,
+    middle_name TEXT,
+    gender TEXT,
+    birth_date TEXT,
+    death_date TEXT,
+    biography TEXT
+);
+
+CREATE TABLE family_tree (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    description TEXT,
+    is_public INTEGER
+);
+
+CREATE TABLE relationship (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person_a INTEGER,
+    person_b INTEGER,
+    type TEXT,
+    FOREIGN KEY(person_a) REFERENCES person(id),
+    FOREIGN KEY(person_b) REFERENCES person(id)
+);
